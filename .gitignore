@@ -1,0 +1,64 @@
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vscode/
+*.code-workspace
+
+# Build outputs
+**/bin/
+**/obj/
+**/dist/
+**/publish/
+**/node_modules/
+**/.angular/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Environment files with secrets
+**/appsettings.json
+!**/appsettings.example.json
+**/appsettings.Production.json
+!**/appsettings.Development.json
+**/.env
+**/.env.local
+**/.env.production
+docker/docker-compose.yml
+!docker/docker-compose.example.yml
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+
+# Docker
+.dockerignore
+
+# Test coverage
+coverage/
+*.coverage
+.nyc_output/
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+
+# Documentation build artifacts (if any)
+docs/_build/
+docs/.vuepress/dist/
