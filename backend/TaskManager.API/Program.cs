@@ -129,8 +129,10 @@ if (string.IsNullOrEmpty(connectionString) || connectionString.Contains("${"))
     }
 }
 
-// Convert PostgreSQL URL format (postgresql://user:pass@host:port/db) to Npgsql format
-if (!string.IsNullOrEmpty(connectionString) && connectionString.StartsWith("postgresql://", StringComparison.OrdinalIgnoreCase))
+// Convert PostgreSQL URL format (postgresql:// or postgres://user:pass@host:port/db) to Npgsql format
+if (!string.IsNullOrEmpty(connectionString) &&
+    (connectionString.StartsWith("postgresql://", StringComparison.OrdinalIgnoreCase) ||
+     connectionString.StartsWith("postgres://", StringComparison.OrdinalIgnoreCase)))
 {
     try
     {
@@ -253,9 +255,10 @@ if (app.Environment.IsDevelopment() || app.Environment.EnvironmentName == "Docke
             }
         }
 
-        // Convert PostgreSQL URL format if needed
+        // Convert PostgreSQL URL format (postgresql:// or postgres://) if needed
         if (!string.IsNullOrEmpty(dbConnectionString) &&
-            dbConnectionString.StartsWith("postgresql://", StringComparison.OrdinalIgnoreCase))
+            (dbConnectionString.StartsWith("postgresql://", StringComparison.OrdinalIgnoreCase) ||
+             dbConnectionString.StartsWith("postgres://", StringComparison.OrdinalIgnoreCase)))
         {
             try
             {
